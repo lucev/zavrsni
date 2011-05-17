@@ -1,4 +1,4 @@
 class Organization < ActiveRecord::Base
-  has_many :accounts, :class_name => 'Member'
+  has_many :members, :class_name => 'Member'
 end
 
