@@ -1,4 +1,6 @@
 Tigris::Application.routes.draw do
+  resources :organizations
+
   resources :users
 
   # The priority is based upon order of creation:
