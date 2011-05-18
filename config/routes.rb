@@ -1,4 +1,6 @@
 Tigris::Application.routes.draw do
+  resources :news
+
   get "page/home"
 
   root :to => "page#home"
