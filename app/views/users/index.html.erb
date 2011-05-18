@@ -4,6 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Surname</th>
+    <th>Type</th>
+    <th>Organization</th>
     <th>Email</th>
     <th>Birthday</th>
     <th>Phone</th>
@@ -19,6 +21,8 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.surname %></td>
+    <td><%= user.type %></td>
+    <td><%= user.organization.name if member? user %></td>
     <td><%= user.email %></td>
     <td><%= user.birthday %></td>
     <td><%= user.phone %></td>
