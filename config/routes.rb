@@ -1,4 +1,6 @@
 Tigris::Application.routes.draw do
+  get "page/home"
+
   resources :organizations
 
   resources :users
