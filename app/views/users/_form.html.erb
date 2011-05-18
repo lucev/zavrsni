@@ -24,6 +24,10 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :type, 'Tip' %><br />
+    <%= f.select :type, options_for_user_types %>
+  </div>
+  <div class="field">
     <%= f.label :birthday, 'Datum rođenja' %><br />
     <%= f.date_select :birthday %>
   </div>
