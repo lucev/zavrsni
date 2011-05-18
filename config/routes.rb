@@ -1,6 +1,8 @@
 Tigris::Application.routes.draw do
   get "page/home"
 
+  root :to => "page#home"
+
   resources :organizations
 
   resources :users
@@ -62,3 +64,4 @@ Tigris::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
