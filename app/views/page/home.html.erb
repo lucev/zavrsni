@@ -1,2 +1,11 @@
-<h1>Page#home</h1>
-<p>Find me in app/views/page/home.html.erb</p>
+<h1>Udruga</h1>
+<%= link_to 'Nova obavijest', new_news_path %>
+<h3>Obavijesti</h3>
+<% @news.each do |news| %>
+  <p>
+    <%= link_to news.title, news_path(news) %><br/>
+    objavljeno: <%= news.created_at.strftime("%d.%m.%Y u %H:%M") %><br/>
+    <%= news.summary %>
+  </p>
+<% end %>
+
