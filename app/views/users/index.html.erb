@@ -2,34 +2,22 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Surname</th>
+    <th>Prezime i ime</th>
     <th>Type</th>
     <th>Organization</th>
     <th>Email</th>
-    <th>Birthday</th>
     <th>Phone</th>
-    <th>Genre</th>
-    <th>Profession</th>
-    <th>Interests</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
-    <td><%= user.surname %></td>
+    <td><%= link_to "#{user.surname} #{user.name}", user %></td>
     <td><%= user.type %></td>
     <td><%= user.organization.name if member? user %></td>
     <td><%= user.email %></td>
-    <td><%= user.birthday %></td>
     <td><%= user.phone %></td>
-    <td><%= user.genre %></td>
-    <td><%= user.profession %></td>
-    <td><%= user.interests %></td>
-    <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
