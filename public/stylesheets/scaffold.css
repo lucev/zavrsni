@@ -24,6 +24,19 @@ div.field, div.actions {
   color: green;
 }
 
+#wrapper {
+  width: 980px;
+  margin: auto;
+}
+
+#header {
+  height: 120px;
+}
+
+#content {
+  padding: 2em;
+}
+
 .field_with_errors {
   padding: 2px;
   background-color: red;
@@ -54,3 +67,4 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
