@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :user_organization_id, 'Udruga' %><br />
-    <%= collection_select(:user, :organization_id, Organization.all, :id, :name) %>
+    <%= collection_select(:user, :organization_id, Organization.all, :id, :name, {:include_blank => true} ) %>
   </div>
   <div class="actions">
     <%= f.submit %>
