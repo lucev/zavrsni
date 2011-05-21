@@ -8,4 +8,5 @@ gem 'haml'
 gem 'haml-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
+gem "paperclip", "~> 2.3"
 
