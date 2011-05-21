@@ -1,4 +1,8 @@
 Tigris::Application.routes.draw do
+  get "sessions/new"
+
+  get "session/new"
+
   resources :news
 
   get "page/home"
