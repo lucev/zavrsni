@@ -51,6 +51,14 @@
     <%= f.label :user_organization_id, 'Udruga' %><br />
     <%= collection_select(:user, :organization_id, Organization.all, :id, :name, {:include_blank => true} ) %>
   </div>
+  <div class="field">
+    <%= f.label :password, 'Lozinka' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, 'Potvrda lozinke' %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

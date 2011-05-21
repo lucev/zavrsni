@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  before_filter :authenticate
   # GET /organizations
   # GET /organizations.xml
   def index
@@ -81,3 +82,4 @@ class OrganizationsController < ApplicationController
     end
   end
 end
+

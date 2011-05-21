@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate
+
   # GET /users
   # GET /users.xml
   def index
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     model = params[:user][:type].camelize.constantize
-    @user = model.new(params[:user])
+    @user = Member.new(params[:user])
 
     respond_to do |format|
       if @user.save

@@ -1,17 +1,21 @@
 Tigris::Application.routes.draw do
   get "sessions/new"
-
   get "session/new"
-
-  resources :news
-
   get "page/home"
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
 
   root :to => "page#home"
 
+  resources :news
   resources :organizations
-
   resources :users
+  resources :sessions
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

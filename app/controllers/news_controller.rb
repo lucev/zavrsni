@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+  before_filter :authenticate, :only => [:index, :new, :edit, :update]
   # GET /news
   # GET /news.xml
   def index
@@ -81,3 +82,4 @@ class NewsController < ApplicationController
     end
   end
 end
+
