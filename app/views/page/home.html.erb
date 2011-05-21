@@ -9,3 +9,14 @@
   </p>
 <% end %>
 
+<hr/>
+
+<h3>Događaji</h3>
+<% @events.each do |event| %>
+  <p>
+    <%= link_to event.name, event_path(event) %><br/>
+    Datum: <%= event.start_date.strftime("%d.%m.%Y") %><br/>
+    <%= event.description %>
+  </p>
+<% end %>
+
