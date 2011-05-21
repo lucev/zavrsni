@@ -3,6 +3,7 @@
   <% if current_user %>
     <%= link_to 'Članovi', users_path %>
     <%= link_to 'Udruge', organizations_path %>
+    <%= link_to 'Događaji', events_path %>
     <%= link_to 'Odjava', log_out_path %>
   <% else %>
     <%= link_to 'Prijava', log_in_path %>

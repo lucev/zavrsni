@@ -1,5 +1,4 @@
 Tigris::Application.routes.draw do
-  resources :events
 
   get "sessions/new"
   get "session/new"
@@ -11,13 +10,13 @@ Tigris::Application.routes.draw do
 
   root :to => "page#home"
 
+  post '/events/apply' => 'events#apply', :as => :apply
+
+  resources :events
   resources :news
   resources :organizations
   resources :users
   resources :sessions
-
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

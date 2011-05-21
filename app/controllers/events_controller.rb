@@ -80,4 +80,14 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def apply
+    @event = Event.find_by_id(params[:event_id])
+    @event.users.push(current_user)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.xml  { render :xml => @events }
+    end
+  end
 end
+
