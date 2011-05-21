@@ -10,7 +10,8 @@ Tigris::Application.routes.draw do
 
   root :to => "page#home"
 
-  post '/events/apply' => 'events#apply', :as => :apply
+  post '/events/register' => 'events#register', :as => :register
+  post '/events/unregister' => 'events#unregister', :as => :unregister
 
   resources :events
   resources :news

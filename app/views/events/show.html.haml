@@ -16,10 +16,18 @@
   %b Opis:
   = @event.description
 
--form_tag ("#{apply_path}") do
-  %input{:name => "event_id", :value => @event.id, :type => "hidden"}
-  %input{:name => "user_id", :value => current_user.id, :type => "hidden"}
-  = submit_tag 'Prijava'
+-if current_user
+  -if @event.applied? current_user
+    -form_tag ("#{unregister_path}") do
+      %input{:name => "event_id", :value => @event.id, :type => "hidden"}
+      %input{:name => "user_id", :value => current_user.id, :type => "hidden"}
+      = submit_tag 'Odjava'
+  -else
+    -form_tag ("#{register_path}") do
+      %input{:name => "event_id", :value => @event.id, :type => "hidden"}
+      %input{:name => "user_id", :value => current_user.id, :type => "hidden"}
+      = submit_tag 'Prijava'
+
 
 %p
   %b Sudionici:
