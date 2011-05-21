@@ -1,4 +1,6 @@
 Tigris::Application.routes.draw do
+  resources :events
+
   get "sessions/new"
   get "session/new"
   get "page/home"
