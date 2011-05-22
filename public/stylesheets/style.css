@@ -53,6 +53,8 @@ div.field, div.actions {
 
 #header {
   height: 120px; }
+  #header img {
+    margin-left: 2px; }
 
 #navigation {
   background-image: url("/images/nav_background.gif");
