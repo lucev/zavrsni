@@ -1,46 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @title %></h1>
+<% content_for :left_bar do %>
+  <h1><%= @title %></h1>
+  <% unless @user.avatar_file_name.nil? %>
+    <div id="avatar">
+      <%= image_tag @user.avatar.url(:medium) %>
+    </div>
+  <% end %>
+  <div id="user">
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
 
+  <p>
+    <b>Datum rođenja:</b>
+    <%= @user.birthday.strftime("%d.%m.%Y") %>
+  </p>
 
-<div id="avatar">
-  <%= image_tag @user.avatar.url(:medium) unless @user.avatar.url.blank? %>
-</div>
+  <p>
+    <b>Telefon:</b>
+    <%= @user.phone %>
+  </p>
 
-<div id="user" class="rounded-box">
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  <p>
+    <b>Spol:</b>
+    <%= @user.genre %>
+  </p>
 
-<p>
-  <b>Birthday:</b>
-  <%= @user.birthday %>
-</p>
+  <p>
+    <b>Zanimanje:</b>
+    <%= @user.profession %>
+  </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @user.phone %>
-</p>
+  <p>
+    <b>Interesovanja:</b>
+    <%= @user.interests %>
+  </p>
+  </div>
+<% end %>
 
-<p>
-  <b>Genre:</b>
-  <%= @user.genre %>
-</p>
-
-<p>
-  <b>Profession:</b>
-  <%= @user.profession %>
-</p>
-
-<p>
-  <b>Interests:</b>
-  <%= @user.interests %>
-</p>
-</div>
 
 <% content_for :sidebar do %>
-  <%= link_to 'Izmjeni profil', edit_user_path(@user) %><br/>
+  <%= link_to 'Izmijeni profil', edit_user_path(@user) %><br/>
   <%= link_to 'Obriši profil', @user, :confirm => 'Jeste li sigurni?', :method => :delete %>
+  <% unless @user.events.empty? %>
+    <div id="user_events" class="rounded-box">
+      <b>Prijavljen na događaje</b>
+      <% @user.events.each do |event| %>
+        <p><%= link_to event.name, event %><br/>
+           Datum: <%= event.start_date.strftime("%d.%m.%Y.")%><br/>
+           Mjesto: <%= event.location %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 

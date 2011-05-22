@@ -11,6 +11,11 @@
     <%= render :partial => 'layouts/header' %>
     <%= render :partial => 'layouts/navigation' %>
     <div id="content">
+      <% unless content_for(:left_bar).blank? %>
+          <div id="left_bar">
+            <%= yield :left_bar %>
+         </div>
+      <% end %>
       <div id="main_content">
         <%= yield %>
       </div>
