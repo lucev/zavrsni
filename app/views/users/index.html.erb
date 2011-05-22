@@ -15,7 +15,7 @@
   <tr>
     <td><%= link_to "#{user.surname} #{user.name}", user %></td>
     <td><%= user.type %></td>
-    <td><%= user.organization.name if member? user %></td>
+    <td><%= user.organization.name if member? user and !user.organization.nil? %></td>
     <td><%= user.email %></td>
     <td><%= user.phone %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

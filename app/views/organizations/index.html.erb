@@ -2,27 +2,24 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Date of establishment</th>
+    <th>Naziv</th>
     <th>Email</th>
-    <th>Informations</th>
-    <th></th>
+    <th>Datum osnutka</th>
     <th></th>
   </tr>
 
 <% @organizations.each do |organization| %>
   <tr>
     <td><%= link_to organization.name, organization %></td>
-    <td><%= organization.date_of_establishment %></td>
     <td><%= organization.email %></td>
-    <td><%= organization.informations %></td>
-    <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-    <td><%= link_to 'Destroy', organization, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= organization.date_of_establishment.strftime("%d.%m.%Y") %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Organization', new_organization_path %>
+<% content_for :sidebar do %>
+  <p><%= link_to 'Dodaj udrugu', new_organization_path %></p>
+<% end %>
 

@@ -3,12 +3,12 @@
 <h1><%= @title %></h1>
 
 <p>
-  <b>Name:</b>
+  <b>Naziv:</b>
   <%= @organization.name %>
 </p>
 
 <p>
-  <b>Date of establishment:</b>
+  <b>Datum osnutka:</b>
   <%= @organization.date_of_establishment %>
 </p>
 
@@ -18,11 +18,13 @@
 </p>
 
 <p>
-  <b>Informations:</b>
+  <b>Informacije:</b>
   <%= @organization.informations %>
 </p>
 
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<% content_for :sidebar do %>
+  <p><%= link_to 'Dodaj udrugu', new_organization_path %></p>
+  <p><%= link_to 'Izmjeni udrugu', edit_organization_path(@organization) %></p>
+  <%= link_to 'Obriši udrugu', @organization, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
 

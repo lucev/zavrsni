@@ -12,22 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Naziv' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :date_of_establishment %><br />
-    <%= f.date_select :date_of_establishment %>
+    <%= f.label :date_of_establishment, 'Datum osnutka' %><br />
+    <%= f.date_select :date_of_establishment, :order => [:day, :month, :year], :start_year => 1950, :use_month_numbers => true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, 'Email' %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :informations %><br />
+    <%= f.label :informations, 'Informacije' %><br />
     <%= f.text_area :informations %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Pošalji' %>
   </div>
 <% end %>
+
