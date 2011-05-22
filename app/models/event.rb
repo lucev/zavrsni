@@ -22,10 +22,9 @@ class Event < ActiveRecord::Base
     event.description = self.description
     event.location = self.location
     event.klass = "PUBLIC"
-    event.created = self.created_at
-    event.last_modified = self.updated_at
+#    event.created = self.created_at
+#    event.last_modified = self.updated_at
     event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
-    event.add_comment("AF83 - Shake your digital, we do WowWare")
     event
   end
 
