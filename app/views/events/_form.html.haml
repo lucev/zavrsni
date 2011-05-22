@@ -7,20 +7,20 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label :name, 'Naziv'
     = f.text_field :name
   .field
-    = f.label :start_date
-    = f.datetime_select :start_date
+    = f.label :start_date, 'Početak'
+    = f.datetime_select :start_date, :order => [:day, :month, :year], :use_month_numbers => true
   .field
-    = f.label :end_date
-    = f.datetime_select :end_date
+    = f.label :end_date, 'Završetak'
+    = f.datetime_select :end_date, :order => [:day, :month, :year], :use_month_numbers => true
   .field
-    = f.label :location
+    = f.label :location, 'Mjesto'
     = f.text_field :location
   .field
-    = f.label :description
+    = f.label :description, 'Opis'
     = f.text_area :description
   .actions
-    = f.submit 'Save'
+    = f.submit 'Pošalji'
 

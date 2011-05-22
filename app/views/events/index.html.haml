@@ -2,25 +2,19 @@
 
 %table
   %tr
-    %th Name
-    %th Start date
-    %th End date
-    %th Location
-    %th Description
-    %th
-    %th
+    %th Naziv
+    %th Početak
+    %th Kraj
+    %th Mjesto
 
   - @events.each do |event|
     %tr
       %td= link_to event.name, event
-      %td= event.start_date
-      %td= event.end_date
+      %td= event.start_date.strftime("%d.%m.%Y u %H:%M")
+      %td= event.end_date.strftime("%d.%m.%Y u %H:%M")
       %td= event.location
-      %td= event.description
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
-
 %br
 
-= link_to 'New Event', new_event_path
+- content_for :sidebar do
+  = link_to 'Dodaj događaj', new_event_path
 

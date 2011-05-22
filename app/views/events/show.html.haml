@@ -3,20 +3,21 @@
 %h1= @title
 
 %p
-  %b Naziv:
-  = @event.name
+  %b Počinje
+  = @event.start_date.strftime("%d.%m.%Y u %H:%M")
 %p
-  %b Datum početka:
-  = @event.start_date
-%p
-  %b Datum završetka:
-  = @event.end_date
+  %b Završava
+  = @event.end_date.strftime("%d.%m.%Y u %H:%M")
 %p
   %b Mjesto:
   = @event.location
+
 %p
   %b Opis:
-  = simple_format h(@event.description)
+  - if @event.description.empty?
+    %p Nema opisa događaja
+  - else
+    .rounded-box= simple_format h(@event.description)
 
 -if current_user
   -if @event.applied? current_user
@@ -30,15 +31,27 @@
       %input{:name => "user_id", :value => current_user.id, :type => "hidden"}
       = submit_tag 'Prijava'
 
-
-%p
-  %b Sudionici:
+- if @event.users.empty?
+  %p Nema prijavljenih na događaj
+- else
+  %p
+    %b Sudionici:
   %table
-    -@event.users.each do |user|
+    %tr
+      %th Prezime i ime
+      %th Email
+      %th Telefon
+    - @event.users.each do |user|
       %tr
-        %td= link_to "#{user.name} #{user.surname}", user_path(user)
+        %td= link_to "#{user.surname} #{user.name}", user
+        %td= user.email
+        %td= user.phone
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+- content_for :sidebar do
+  %p
+    = link_to 'Dodaj događaj', new_event_path
+  %p
+    = link_to 'Izmijeni događaj', edit_event_path(@event)
+  %p
+    = link_to 'Obriši događaj', @event, :confirm => 'Are you sure?', :method => :delete
 
