@@ -2,3 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+app/uploaders/
+public/stylesheets/.sass-cache/
+public/system/
+
