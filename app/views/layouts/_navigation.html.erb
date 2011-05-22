@@ -5,8 +5,9 @@
       <%= link_to 'Novosti', news_index_path %>&nbsp;|&nbsp;
       <%= link_to 'Događaji', events_path %>&nbsp;|&nbsp;
       <%= link_to 'Članovi', users_path %>&nbsp;|&nbsp;
-      <%= link_to 'Udruge', organizations_path %>
+      <%= link_to 'Udruge', organizations_path %>&nbsp;|&nbsp;
     <% end %>
+    <%= link_to 'Kalendar', calendar_path %>
   </div>
   <div id="nav_session">
     <% if current_user %>

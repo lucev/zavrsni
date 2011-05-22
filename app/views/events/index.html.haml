@@ -8,7 +8,7 @@
     %th Mjesto
 
   - @events.each do |event|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= link_to event.name, event
       %td= event.start_date.strftime("%d.%m.%Y u %H:%M")
       %td= event.end_date.strftime("%d.%m.%Y u %H:%M")

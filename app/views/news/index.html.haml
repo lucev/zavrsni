@@ -7,7 +7,7 @@
     %th Status
 
   - @news.each do |news|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= news.date.strftime("%d.%m.%Y.")
       %td= link_to news.title, news_path(news)
       %td= news.status

@@ -9,7 +9,7 @@
   </tr>
 
 <% @organizations.each do |organization| %>
-  <tr>
+  <tr class="<%= cycle('odd', 'even') %>">
     <td><%= link_to organization.name, organization %></td>
     <td><%= organization.email %></td>
     <td><%= organization.date_of_establishment.strftime("%d.%m.%Y") %></td>
