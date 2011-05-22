@@ -20,6 +20,15 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }
+      format.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@event.to_ics)
+        calendar.publish
+        calendar.to_ical
+        #render 'calendar.to_ical'
+        #redirect_to root_path
+        render :text => calendar.to_ical
+      end
     end
   end
 

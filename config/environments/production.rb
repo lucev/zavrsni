@@ -1,4 +1,5 @@
 Tigris::Application.configure do
+  PUBLIC_URL = "http://morning-river-153.heroku.com/"
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -47,3 +48,4 @@ Tigris::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
+

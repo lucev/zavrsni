@@ -1,4 +1,5 @@
 Tigris::Application.configure do
+  PUBLIC_URL = "http://morning-river-153.heroku.com/"
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
