@@ -1,0 +1,41 @@
+%p#notice= notice
+
+%h1= @title
+
+%p
+  %b Naziv:
+  = @organization.name
+%p
+  %b Datum osnutka:
+  = @organization.date_of_establishment
+%p
+  %b Email:
+  = @organization.email
+
+- unless @organization.informations.empty?
+  %p
+    %b Informacije:
+    = @organization.informations
+
+- unless @organization.members.empty?
+  %p
+    %b Članovi:
+    %table
+      %tr
+        %th Prezime i ime
+        %th Email
+        %th Telefon
+        %th
+        %th
+      - @organization.members.each do |user|
+        %tr
+          %td= link_to "#{user.surname} #{user.name}", user
+          %td= user.email
+          %td= user.phone
+
+
+- content_for :sidebar do
+  %p= link_to 'Dodaj udrugu', new_organization_path
+  %p= link_to 'Izmjeni udrugu', edit_organization_path(@organization)
+  = link_to 'Obrisi udrugu', @organization, :confirm => 'Are you sure?', :method => :delete
+
