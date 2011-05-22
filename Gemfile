@@ -4,9 +4,9 @@ gem 'rails', '3.0.6'
 
 gem 'sqlite3'
 
-gem 'haml'
+gem 'haml', '~> 3.1'
 gem 'haml-rails'
-gem 'sass'
+gem 'sass', '~> 3.1'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "paperclip", "~> 2.3"

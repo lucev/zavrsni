@@ -38,7 +38,7 @@ GEM
     columnize (0.3.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    haml (3.0.25)
+    haml (3.1.1)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -95,11 +95,11 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   bcrypt-ruby
-  haml
+  haml (~> 3.1)
   haml-rails
   icalendar
   paperclip (~> 2.3)
   rails (= 3.0.6)
   ruby-debug
-  sass
+  sass (~> 3.1)
   sqlite3
