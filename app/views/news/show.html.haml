@@ -3,22 +3,27 @@
 %h1= @title
 
 %p
-  %b Title:
-  = @news.title
+  Datum:
+  = @news.date.strftime("%d.%m.%Y.")
 %p
-  %b Date:
-  = @news.date
+  %b Sažetak
+  %p
+    = @news.summary
 %p
-  %b Summary:
-  = @news.summary
+  %b Sadržaj
+  %p
+    = @news.text
 %p
-  %b Text:
-  = @news.text
-%p
-  %b Status:
+  %b Status
   = @news.status
 
-= link_to 'Edit', edit_news_path(@news)
-\|
-= link_to 'Back', news_index_path
+-content_for :sidebar do
+  %p
+    = link_to 'Pretraži obavijesti', news_index_path
+  %p
+    = link_to 'Dodaj obavijest', new_news_path
+  %p
+    = link_to 'Izmjeni obavijest', edit_news_path(@news)
+  %p
+    = link_to 'Obriši obavijest', @news, :confirm => 'Are you sure?', :method => :delete
 

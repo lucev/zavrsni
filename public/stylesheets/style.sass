@@ -9,6 +9,9 @@ h1
   font-size: 1.6em
   color: #0071B9
 
+h3
+  color: darkred
+
 p, ol, ul, td
   font-family: verdana, arial, helvetica, sans-serif
   font-size: 1em
@@ -24,7 +27,7 @@ a
   &:visited
     color: #666
   &:hover
-    color: #fff
+    color: #333
 
 @mixin rounded-box
   $radius: 5px
@@ -63,6 +66,7 @@ div
   min-height: 30px
   vertical-align: middle
   padding: 0.4em 1em 0em 1em
+  color: #E9F4FB
   a
     padding: 0.4em
     color: #E9F4FB
@@ -76,14 +80,33 @@ div
   #nav_session
     float: right
 #content
-  padding: 2em
+  padding: 2em 0em 2em 2em
   min-height: 600px
 
+#main_content
+  float: left
+  width: 65%
+
+#sidebar
+  @include rounded-box
+  width: 27%
+  min-height: 400px
+  margin-right: 1em
+  float: right
+  background-color: #E9F4FB
+  a
+    color: #333
+    font-weight: bold
+
 #news
-  width: 30%
+  width: 40%
   float: left
 
 #events
-  width: 30%
+  width: 40%
   float: left
+
+textarea
+  width: 25em
+  height: 10em
 

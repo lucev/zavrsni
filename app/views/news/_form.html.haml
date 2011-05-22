@@ -1,3 +1,4 @@
+%table
 = form_for @news do |f|
   -if @news.errors.any?
     #error_explanation
@@ -5,22 +6,39 @@
       %ul
         - @news.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :summary
-    = f.text_field :summary
-  .field
-    = f.label :date
-    = f.date_select :date
-  .field
-    = f.label :text
-    = f.text_area :text
-  .field
-    = f.label :status
-    = f.text_field :status
-  .actions
-    = f.submit 'Save'
+  %tr
+    %td
+      .field
+        = f.label :title, 'Naslov'
+    %td
+      = f.text_field :title
+  %tr
+    %td
+      .field
+        = f.label :summary, 'Sažetak'
+    %td
+      = f.text_field :summary
+  %tr
+    %td
+      .field
+        = f.label :date, 'Datum'
+    %td
+      = f.date_select :date, :order => [:day, :month, :year], :start_year => 1900, :use_month_numbers => true
+  %tr
+    %td
+      .field
+        = f.label :text, 'Sadržaj'
+    %td
+      = f.text_area :text
+  %tr
+    %td
+      .field
+        = f.label :status, 'Status'
+    %td
+      = f.text_field :status
+  %tr
+    %td
+    %td
+      .actions
+        = f.submit 'Spremi'
 

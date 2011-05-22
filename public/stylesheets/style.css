@@ -9,6 +9,9 @@ h1 {
   font-size: 1.6em;
   color: #0071b9; }
 
+h3 {
+  color: darkred; }
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 1em;
@@ -24,7 +27,7 @@ a {
   a:visited {
     color: #666666; }
   a:hover {
-    color: white; }
+    color: #333333; }
 
 .rounded-box {
   border-radius: 5px;
@@ -55,7 +58,8 @@ div.field, div.actions {
   background-image: url("/images/nav_background.gif");
   min-height: 30px;
   vertical-align: middle;
-  padding: 0.4em 1em 0em 1em; }
+  padding: 0.4em 1em 0em 1em;
+  color: #e9f4fb; }
   #navigation a {
     padding: 0.4em;
     color: #e9f4fb;
@@ -70,13 +74,37 @@ div.field, div.actions {
     float: right; }
 
 #content {
-  padding: 2em;
+  padding: 2em 0em 2em 2em;
   min-height: 600px; }
 
+#main_content {
+  float: left;
+  width: 65%; }
+
+#sidebar {
+  border-radius: 5px;
+  -moz-border-radius-: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #dddddd;
+  padding: 1em;
+  margin: 1em 2em 1em 0em;
+  width: 27%;
+  min-height: 400px;
+  margin-right: 1em;
+  float: right;
+  background-color: #e9f4fb; }
+  #sidebar a {
+    color: #333333;
+    font-weight: bold; }
+
 #news {
-  width: 30%;
+  width: 40%;
   float: left; }
 
 #events {
-  width: 30%;
+  width: 40%;
   float: left; }
+
+textarea {
+  width: 25em;
+  height: 10em; }

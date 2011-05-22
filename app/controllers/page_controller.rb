@@ -6,5 +6,9 @@ class PageController < ApplicationController
     @events = Event.find(:all, :order => "start_date ASC")
   end
 
+  def calendar
+    @title = 'Kalendar'
+  end
+
 end
 

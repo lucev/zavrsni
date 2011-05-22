@@ -1,5 +1,4 @@
 %h1= @title
-= link_to 'Nova obavijest', new_news_path
 
 #news.rounded-box
   %h3 Obavijesti
@@ -20,4 +19,11 @@
       Datum: #{event.start_date.strftime("%d.%m.%Y")}
       %br/
       = event.description
+
+-content_for :sidebar do
+  =render :partial => 'layouts/side_calendar'
+  %p
+    =link_to 'Kalendar događanja', calendar_path
+  %p
+    =link_to 'Preuzmi iCal format', 'events.ical'
 

@@ -14,6 +14,8 @@ Tigris::Application.routes.draw do
   post '/events/register' => 'events#register', :as => :register
   post '/events/unregister' => 'events#unregister', :as => :unregister
 
+  match 'calendar' => 'page#calendar', :as => :calendar
+
   resources :events
   resources :news
   resources :organizations
