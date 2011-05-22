@@ -3,6 +3,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.xml
   def index
+    @title = 'Udruge'
     @organizations = Organization.all
 
     respond_to do |format|
@@ -16,6 +17,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
 
+    @title = @organization.name
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @organization }
@@ -27,6 +29,7 @@ class OrganizationsController < ApplicationController
   def new
     @organization = Organization.new
 
+    @title = 'Nova udruga'
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @organization }
@@ -36,6 +39,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1/edit
   def edit
     @organization = Organization.find(params[:id])
+
+    @title = 'Izmjena detalja udruge'
   end
 
   # POST /organizations

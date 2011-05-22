@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @users = User.find(:all, :order => "surname, name ASC")
+    @title = 'Članovi'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    @title = "#{@user.name} #{@user.surname}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
+    @title = 'Novi član'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @title = 'Izmjena detalja člana'
   end
 
   # POST /users

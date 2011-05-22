@@ -1,0 +1,23 @@
+%h1= @title
+= link_to 'Nova obavijest', new_news_path
+
+#news.rounded-box
+  %h3 Obavijesti
+  - @news.each do |news|
+    %p
+      = link_to news.title, news_path(news)
+      %br/
+      objavljeno: #{news.created_at.strftime("%d.%m.%Y u %H:%M")}
+      %br/
+      = news.summary
+
+#events.rounded-box
+  %h3 Događaji
+  - @events.each do |event|
+    %p
+      = link_to event.name, event_path(event)
+      %br/
+      Datum: #{event.start_date.strftime("%d.%m.%Y")}
+      %br/
+      = event.description
+

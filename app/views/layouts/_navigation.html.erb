@@ -1,13 +1,21 @@
 <div id="navigation">
-  <%= link_to 'Početna', root_path %>
-  <% if current_user %>
-    <%= link_to 'Članovi', users_path %>
-    <%= link_to 'Udruge', organizations_path %>
-    <%= link_to 'Događaji', events_path %>
-    <%= link_to 'Odjava', log_out_path %>
-  <% else %>
-    <%= link_to 'Prijava', log_in_path %>
-    <%= link_to 'Novi korisnik', sign_up_path %>
-  <% end %>
+  <div id="pages">
+    <%= link_to 'Početna', root_path %>
+    <% if current_user %>
+      <%= link_to 'Novosti', news_index_path %>
+      <%= link_to 'Događaji', events_path %>
+      <%= link_to 'Članovi', users_path %>
+      <%= link_to 'Udruge', organizations_path %>
+    <% end %>
+  </div>
+  <div id="nav_session">
+    <% if current_user %>
+      <%= link_to "#{current_user.name} #{current_user.surname}", current_user %>
+      <%= link_to 'Odjava', log_out_path %>
+    <% else %>
+      <%= link_to 'Novi korisnik', sign_up_path %>
+      <%= link_to 'Prijava', log_in_path %>
+    <% end %>
+  </div>
 </div>
 

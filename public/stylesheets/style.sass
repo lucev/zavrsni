@@ -1,0 +1,89 @@
+body
+  background-color: #fff
+  color: #333
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size: 13px
+  line-height: 18px
+
+h1
+  font-size: 1.6em
+  color: #0071B9
+
+p, ol, ul, td
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size: 1em
+  line-height: 18px
+
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: 11px
+
+a
+  color: #000
+  &:visited
+    color: #666
+  &:hover
+    color: #fff
+
+@mixin rounded-box
+  $radius: 5px
+  border-radius: $radius
+  -moz-border-radius-: $radius
+  -webkit-border-radius: $radius
+  border: 1px solid #ddd
+  padding: 1em
+  margin: 1em 2em 1em 0em
+
+.rounded-box
+  @include rounded-box
+
+
+div
+  &.field, &.actions
+    margin-bottom: 10px
+
+#notice
+  color: green
+
+#wrapper
+  width: 980px
+  margin: auto
+  $radius: 6px
+  border-radius: $radius
+  -moz-border-radius-: $radius
+  -webkit-border-radius: $radius
+  border: 1px solid #ddd
+
+#header
+  height: 120px
+
+#navigation
+  background-image: url('/images/nav_background.gif')
+  min-height: 30px
+  vertical-align: middle
+  padding: 0.4em 1em 0em 1em
+  a
+    padding: 0.4em
+    color: #E9F4FB
+    text-decoration: none
+    vertical-align: middle
+    font-weight: bold
+    &:hover
+      text-decoration: underline
+  #pages
+    float: left
+  #nav_session
+    float: right
+#content
+  padding: 2em
+  min-height: 600px
+
+#news
+  width: 30%
+  float: left
+
+#events
+  width: 30%
+  float: left
+

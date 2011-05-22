@@ -4,6 +4,7 @@ class NewsController < ApplicationController
   # GET /news.xml
   def index
     @news = News.all
+    @title = 'Novosti'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class NewsController < ApplicationController
   # GET /news/1.xml
   def show
     @news = News.find(params[:id])
+    @title = @news.title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +28,7 @@ class NewsController < ApplicationController
   # GET /news/new.xml
   def new
     @news = News.new
+    @title = 'Nova obavijest'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +39,7 @@ class NewsController < ApplicationController
   # GET /news/1/edit
   def edit
     @news = News.find(params[:id])
+    @title = 'Izmjena detalja novosti'
   end
 
   # POST /news
