@@ -1,5 +1,7 @@
 Tigris::Application.configure do
   PUBLIC_URL = "http://morning-river-153.heroku.com/"
+  Paperclip.options[:command_path] = "/usr/bin/"
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

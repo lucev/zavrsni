@@ -2,16 +2,12 @@
 
 <h1><%= @title %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
 
-<p>
-  <b>Surname:</b>
-  <%= @user.surname %>
-</p>
+<div id="avatar">
+  <%= image_tag @user.avatar.url(:medium) unless @user.avatar.url.blank? %>
+</div>
 
+<div id="user" class="rounded-box">
 <p>
   <b>Email:</b>
   <%= @user.email %>
@@ -41,8 +37,10 @@
   <b>Interests:</b>
   <%= @user.interests %>
 </p>
+</div>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% content_for :sidebar do %>
+  <%= link_to 'Izmjeni profil', edit_user_path(@user) %><br/>
+  <%= link_to 'Obriši profil', @user, :confirm => 'Jeste li sigurni?', :method => :delete %>
+<% end %>
 
