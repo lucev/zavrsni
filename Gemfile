@@ -12,4 +12,6 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem "paperclip", "~> 2.3"
 
 gem 'icalendar'
+gem 'aws-s3'
+gem 'ruby-debug'
 

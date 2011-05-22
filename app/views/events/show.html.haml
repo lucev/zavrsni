@@ -16,7 +16,7 @@
   = @event.location
 %p
   %b Opis:
-  = @event.description
+  = simple_format h(@event.description)
 
 -if current_user
   -if @event.applied? current_user
