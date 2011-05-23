@@ -40,8 +40,8 @@
 
 
 <% content_for :sidebar do %>
-  <%= link_to 'Izmijeni profil', edit_user_path(@user) %><br/>
-  <%= link_to 'Obriši profil', @user, :confirm => 'Jeste li sigurni?', :method => :delete %>
+  <p><%= link_to 'Izmijeni profil', edit_user_path(@user) %></p>
+  <p><%= link_to 'Obriši profil', @user, :confirm => 'Jeste li sigurni?', :method => :delete %></p>
   <% unless @user.events.empty? %>
     <div id="user_events" class="rounded-box">
       <b>Prijavljen na događaje</b>
