@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     model = params[:user][:type].camelize.constantize
-    @user = model.new(params[:user])
+    @user = Member.new(params[:user])
 
     respond_to do |format|
       if @user.save
