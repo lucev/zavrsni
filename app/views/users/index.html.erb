@@ -3,16 +3,16 @@
 <table>
   <tr>
     <th>Prezime i ime</th>
-    <th>Telefon</th>
     <th>Email</th>
+    <th>Telefon</th>
     <th>Tim</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr class="<%= cycle('odd', 'even') %>">
     <td><%= link_to "#{user.surname} #{user.name}", user %></td>
-    <td><%= user.phone %></td>
     <td><%= user.email %></td>
+    <td><%= user.phone %></td>
     <td><%= user.organization.name if member? user and !user.organization.nil? %></td>
   </tr>
 <% end %>
