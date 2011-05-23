@@ -19,9 +19,9 @@
       Datum: #{event.start_date.strftime("%d.%m.%Y")}
 
 -content_for :sidebar do
-  =#render :partial => 'layouts/side_calendar'
+  =render :partial => 'layouts/side_calendar'
   %p
-    =#link_to 'Kalendar događanja', calendar_path
+    =link_to 'Kalendar događanja', calendar_path
   %p
     =link_to 'Preuzmi kalendar', 'events.ical'
 
