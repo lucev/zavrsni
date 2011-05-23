@@ -28,7 +28,7 @@
         %th
         %th
       - @organization.members.each do |user|
-        %tr
+        %tr{:class => cycle('odd', 'even')}
           %td= link_to "#{user.surname} #{user.name}", user
           %td= user.email
           %td= user.phone
