@@ -1,42 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <% content_for :left_bar do %>
-  <h1><%= @title %></h1>
-  <% unless @user.avatar_file_name.nil? %>
-    <div id="avatar">
-      <%= image_tag @user.avatar.url(:medium) %>
-    </div>
-  <% end %>
   <div id="user">
-  <p>
-    <b>Email:</b>
-    <%= @user.email %>
-  </p>
+    <h1><%= @title %></h1>
+    <% unless @user.avatar_file_name.nil? %>
+        <%= image_tag @user.avatar.url(:medium) %>
+    <% end %>
+    <p>
+      <b>Email:</b>
+      <%= @user.email %>
+    </p>
 
-  <p>
-    <b>Datum rođenja:</b>
-    <%= @user.birthday.strftime("%d.%m.%Y") %>
-  </p>
+    <p>
+      <b>Datum rođenja:</b>
+      <%= @user.birthday.strftime("%d.%m.%Y") %>
+    </p>
 
-  <p>
-    <b>Telefon:</b>
-    <%= @user.phone %>
-  </p>
+    <p>
+      <b>Telefon:</b>
+      <%= @user.phone %>
+    </p>
 
-  <p>
-    <b>Spol:</b>
-    <%= @user.genre %>
-  </p>
+    <p>
+      <b>Spol:</b>
+      <%= @user.genre %>
+    </p>
 
-  <p>
-    <b>Zanimanje:</b>
-    <%= @user.profession %>
-  </p>
+    <p>
+      <b>Zanimanje:</b>
+      <%= @user.profession %>
+    </p>
 
-  <p>
-    <b>Interesovanja:</b>
-    <%= simple_format h(@user.interests) %>
-  </p>
+    <p>
+      <b>Dodatne informacije:</b>
+      <%= simple_format h(@user.interests) %>
+    </p>
   </div>
 <% end %>
 
