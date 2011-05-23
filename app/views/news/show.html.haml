@@ -9,13 +9,15 @@
   %b Sažetak
   %p
     = @news.summary
-%p
+- unless @news.text.empty?
   %b Sadržaj
+  %div.rounded-box
+    %p
+      = simple_format h(@news.text)
+- unless @news.status.empty?
   %p
-    = simple_format h(@news.text)
-%p
-  %b Status
-  = @news.status
+    %b Status
+    = @news.status
 
 -content_for :sidebar do
 
