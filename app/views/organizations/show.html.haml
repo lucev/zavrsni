@@ -12,9 +12,9 @@
   %b Email:
   = @organization.email
 
-- unless @organization.informations.empty?
-  %p
-    %b Informacije:
+- unless (@organization.informations.nil? or @organization.informations.empty?)
+  %b Informacije:
+  %div.rounded-box
     = simple_format h(@organization.informations)
 
 - unless @organization.members.empty?
