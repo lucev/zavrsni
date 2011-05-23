@@ -9,12 +9,12 @@
   %b Sažetak
   %p
     = @news.summary
-- unless @news.text.empty?
+- unless (@news.text.nil? or @news.text.empty?)
   %b Sadržaj
   %div.rounded-box
     %p
       = simple_format h(@news.text)
-- unless @news.status.empty? or @news.status.nil?
+- unless (@news.status.nil? or @news.status.empty?)
   %p
     %b Status
     = @news.status
