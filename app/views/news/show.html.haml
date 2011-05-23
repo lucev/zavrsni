@@ -14,7 +14,7 @@
   %div.rounded-box
     %p
       = simple_format h(@news.text)
-- unless @news.status.empty?
+- unless @news.status.empty? or @news.status.nil?
   %p
     %b Status
     = @news.status
