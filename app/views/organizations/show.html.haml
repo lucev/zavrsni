@@ -25,8 +25,6 @@
         %th Prezime i ime
         %th Email
         %th Telefon
-        %th
-        %th
       - @organization.members.each do |user|
         %tr{:class => cycle('odd', 'even')}
           %td= link_to "#{user.surname} #{user.name}", user
