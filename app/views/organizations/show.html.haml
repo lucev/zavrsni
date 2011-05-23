@@ -15,7 +15,7 @@
 - unless @organization.informations.empty?
   %p
     %b Informacije:
-    = @organization.informations
+    = simple_format h(@organization.informations)
 
 - unless @organization.members.empty?
   %p

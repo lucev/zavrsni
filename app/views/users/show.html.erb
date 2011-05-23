@@ -35,7 +35,7 @@
 
   <p>
     <b>Interesovanja:</b>
-    <%= @user.interests %>
+    <%= simple_format h(@user.interests) %>
   </p>
   </div>
 <% end %>
