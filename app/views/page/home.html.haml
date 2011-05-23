@@ -21,9 +21,9 @@
       = event.description
 
 -content_for :sidebar do
-  =render :partial => 'layouts/side_calendar'
+  =#render :partial => 'layouts/side_calendar'
   %p
-    =link_to 'Kalendar događanja', calendar_path
+    =#link_to 'Kalendar događanja', calendar_path
   %p
     =link_to 'Preuzmi iCal format', 'events.ical'
 

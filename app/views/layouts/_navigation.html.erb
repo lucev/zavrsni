@@ -1,13 +1,13 @@
 <div id="navigation">
   <div id="pages">
-    <%= link_to 'Početna', root_path %>&nbsp;|&nbsp;
+    <%= link_to 'Početna', root_path %>
     <% if current_user %>
-      <%= link_to 'Novosti', news_index_path %>&nbsp;|&nbsp;
+      &nbsp;|&nbsp;<%= link_to 'Novosti', news_index_path %>&nbsp;|&nbsp;
       <%= link_to 'Događaji', events_path %>&nbsp;|&nbsp;
       <%= link_to 'Članovi', users_path %>&nbsp;|&nbsp;
-      <%= link_to 'Udruge', organizations_path %>&nbsp;|&nbsp;
+      <%= link_to 'Udruge', organizations_path %>
     <% end %>
-    <%= link_to 'Kalendar', calendar_path %>
+    <%#= link_to 'Kalendar', calendar_path %>
   </div>
   <div id="nav_session">
     <% if current_user %>
