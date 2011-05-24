@@ -11,7 +11,7 @@ location = Rails.root + 'app/styles'
     css_location.sub!(%r{/public/stylesheets$}, "/#{css_dir}/stylesheets")
   end
 
-  add Rack middleware to serve compiled stylesheets from "tmp/stylesheets"
+# add Rack middleware to serve compiled stylesheets from "tmp/stylesheets"
   Rails.configuration.middleware.insert_after 'Sass::Plugin::Rack', 'Rack::Static',
     :urls => ['/stylesheets'], :root => "#{Rails.root}/tmp"
 end
