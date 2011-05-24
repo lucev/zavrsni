@@ -6,8 +6,8 @@ location = Rails.root + 'app/styles'
     Sass::Plugin.add_template_location(location.to_s, css_location.to_s)
   end
 
-  if ENV['HEROKU_TYPE']
-    Sass::Plugin.template_location_array.each do |template_location, css_location|
+if ENV['HEROKU_TYPE']
+  Sass::Plugin.template_location_array.each do |template_location, css_location|
     css_location.sub!(%r{/public/stylesheets$}, "/#{css_dir}/stylesheets")
   end
 
