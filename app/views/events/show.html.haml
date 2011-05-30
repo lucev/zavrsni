@@ -48,10 +48,12 @@
         %td= user.phone
 
 - content_for :sidebar do
-  %p
-    = link_to 'Dodaj događaj', new_event_path
-  %p
-    = link_to 'Izmijeni događaj', edit_event_path(@event)
-  %p
-    = link_to 'Obriši događaj', @event, :confirm => 'Are you sure?', :method => :delete
+  -if logged_in?
+    %p
+      = link_to 'Dodaj događaj', new_event_path
+  - if authorized_for @event
+    %p
+      = link_to 'Izmijeni događaj', edit_event_path(@event)
+    %p
+      = link_to 'Obriši događaj', @event, :confirm => 'Are you sure?', :method => :delete
 

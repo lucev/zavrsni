@@ -19,12 +19,14 @@
     %b Status
     = @news.status
 
+
 -content_for :sidebar do
 
-  %p
-    = link_to 'Dodaj obavijest', new_news_path
-  %p
-    = link_to 'Izmjeni obavijest', edit_news_path(@news)
-  %p
-    = link_to 'Obriši obavijest', @news, :confirm => 'Jeste li sigurni?', :method => :delete
+  -if logged_in?
+    %p
+      = link_to admin? ? 'Dodaj obavijest' : 'Predloži obavijest', new_news_path
+    %p
+      = link_to 'Izmjeni obavijest', edit_news_path(@news)
+    %p
+      = link_to 'Obriši obavijest', @news, :confirm => 'Jeste li sigurni?', :method => :delete
 

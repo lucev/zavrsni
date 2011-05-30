@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :only => [:new, :edit, :update]
   # GET /organizations
   # GET /organizations.xml
   def index
@@ -39,8 +39,11 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1/edit
   def edit
     @organization = Organization.find(params[:id])
-
-    @title = 'Izmjena detalja udruge'
+    if authorized_for @organization
+      @title = 'Izmjena detalja udruge'
+    else
+      redirect_to organization_path(@organization), :notice => 'Nemate dovoljno prava za ovu akciju.'
+    end
   end
 
   # POST /organizations
@@ -64,14 +67,18 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(params[:id])
 
-    respond_to do |format|
-      if @organization.update_attributes(params[:organization])
-        format.html { redirect_to(@organization, :notice => 'Organization was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @organization.errors, :status => :unprocessable_entity }
+    if authorized_for @organization
+      respond_to do |format|
+        if @organization.update_attributes(params[:organization])
+          format.html { redirect_to(@organization, :notice => 'Organization was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @organization.errors, :status => :unprocessable_entity }
+        end
       end
+    else
+      redirect_to :back, :notice => 'Nemate dovoljno prava za ovu akciju.'
     end
   end
 
