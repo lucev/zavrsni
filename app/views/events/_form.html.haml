@@ -6,21 +6,37 @@
         - @event.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name, 'Naziv'
-    = f.text_field :name
-  .field
-    = f.label :start_date, 'Početak'
-    = f.datetime_select :start_date, :order => [:day, :month, :year], :use_month_numbers => true
-  .field
-    = f.label :end_date, 'Završetak'
-    = f.datetime_select :end_date, :order => [:day, :month, :year], :use_month_numbers => true
-  .field
-    = f.label :location, 'Mjesto'
-    = f.text_field :location
-  .field
-    = f.label :description, 'Opis'
-    = f.text_area :description
-  .actions
-    = f.submit 'Pošalji'
+  %table.input
+    %tr.field
+      %td= f.label :name, 'Naziv'
+      %td= f.text_field :name
+    %tr.field
+      %td= f.label :location, 'Mjesto'
+      %td= f.text_field :location
+    %tr.field
+      %td= label_tag :start_date, 'Početak'
+      %td
+        = text_field_tag :start_date, @event.start_date.nil? ? nil : @event.start_date.strftime("%d/%m/%Y")
+        &nbsp;u
+        = text_field_tag :start_time, @event.start_date.nil? ? nil : @event.start_date.strftime("%H:%M")
+    %tr.field
+      %td= label_tag :end_date, 'Završetak'
+      %td
+        = text_field_tag :end_date, @event.end_date.nil? ? nil : @event.end_date.strftime("%d/%m/%Y")
+        &nbsp;u
+        = text_field_tag :end_time, @event.end_date.nil? ? nil : @event.end_date.strftime("%H:%M") unless @event.nil?
+      :javascript
+        $(function(){
+        $('#start_date, #start_time,' + '#end_date, #end_time').calendricalDateTimeRange({usa: false,
+                                                                                          isoTime: true,
+                                                                                          minTime: {hour: 0, minute: 0},
+                                                                                          defaultTime: {hour: 15, minute: 0}
+                                                                                          });
+        })
+    %tr.field
+      %td= f.label :description, 'Opis'
+      %td= f.text_area :description
+    %tr.actions
+      %td
+      %td= f.submit 'Pošalji'
 

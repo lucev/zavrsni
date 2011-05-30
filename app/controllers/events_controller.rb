@@ -70,6 +70,12 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
+    start_date = Date.strptime(params[:start_date], "%d/%m/%Y")
+    start_time = params[:start_time]
+    @event.start_date = "#{start_date} #{start_time}"
+    end_date = Date.strptime(params[:end_date], "%d/%m/%Y")
+    end_time = params[:end_time]
+    @event.end_date = "#{end_date} #{end_time}"
 
     respond_to do |format|
       if @event.save
@@ -86,6 +92,12 @@ class EventsController < ApplicationController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
+    start_date = Date.strptime(params[:start_date], "%d/%m/%Y")
+    start_time = params[:start_time]
+    @event.start_date = "#{start_date} #{start_time}"
+    end_date = Date.strptime(params[:end_date], "%d/%m/%Y")
+    end_time = params[:end_time]
+    @event.end_date = "#{end_date} #{end_time}"
 
     if authorized_for @event
       respond_to do |format|
