@@ -17,6 +17,7 @@ class NewsController < ApplicationController
   def show
     @news = News.find(params[:id])
     @title = @news.title
+    @autor = User.find_by_id(@news.user_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,6 +51,7 @@ class NewsController < ApplicationController
   # POST /news.xml
   def create
     @news = News.new(params[:news])
+    @news.user_id = current_user.id
 
     respond_to do |format|
       if @news.save

@@ -5,10 +5,17 @@
 %p
   Datum:
   = @news.date.strftime("%d.%m.%Y.")
-%p
-  %b Sažetak
+
+- unless @autor.nil?
   %p
-    = @news.summary
+    Autor:
+    = logged_in? ? link_to ("#{@autor.name} #{@autor.surname}", @autor ) : "#{@autor.name} #{@autor.surname}"
+
+- unless @news.summary.nil? or @news.summary.empty?
+  %p
+    %b Sažetak
+    %p
+      = @news.summary
 - unless (@news.text.nil? or @news.text.empty?)
   %b Sadržaj
   %div.rounded-box
@@ -26,7 +33,7 @@
     %p
       = link_to admin? ? 'Dodaj obavijest' : 'Predloži obavijest', new_news_path
     %p
-      = link_to 'Izmjeni obavijest', edit_news_path(@news)
+      = link_to 'Izmjeni obavijest', edit_news_path(@news) if authorized_for @news
     %p
-      = link_to 'Obriši obavijest', @news, :confirm => 'Jeste li sigurni?', :method => :delete
+      = link_to 'Obriši obavijest', @news, :confirm => 'Jeste li sigurni?', :method => :delete if authorized_for @news
 

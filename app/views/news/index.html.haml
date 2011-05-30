@@ -16,5 +16,5 @@
 
 -content_for :sidebar do
   %p
-    =link_to 'Dodaj obavijest', new_news_path
+    = link_to admin? ? 'Dodaj obavijest' : 'Predloži obavijest', new_news_path
 
