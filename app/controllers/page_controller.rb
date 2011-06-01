@@ -10,5 +10,9 @@ class PageController < ApplicationController
     @title = 'Kalendar'
   end
 
+  def contact
+    @title = 'Kontakt'
+  end
+
 end
 
