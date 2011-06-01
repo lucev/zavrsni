@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%h1= @title
+
+= form_for @message, :url => { :action => "send_mail" } do |f|
+
+  .field
+    =f.label 'Tema'
+    %br
+    =f.text_field :subject
+
+  .field
+    =f.label 'Vaše ime'
+    %br
+    =f.text_field :sender_name
+
+  .field
+    =f.label 'Email'
+    %br
+    =f.text_field :sender_email
+
+  .field
+    =f.label 'Sadržaj'
+    %br
+    =f.text_area :body
+
+  .actions
+    = f.submit 'Pošalji'
+

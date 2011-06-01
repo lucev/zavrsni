@@ -14,13 +14,17 @@ Tigris::Application.routes.draw do
   post '/events/register' => 'events#register', :as => :register
   post '/events/unregister' => 'events#unregister', :as => :unregister
 
+  post 'pages/contact' => 'page#send_mail', :as => :message
+
   match 'calendar' => 'page#calendar', :as => :calendar
+  match 'contact' => 'page#contact', :as => :contact
 
   resources :events
   resources :news
   resources :organizations
   resources :users
   resources :sessions
+  resources :messages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

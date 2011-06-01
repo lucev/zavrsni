@@ -13,6 +13,7 @@ gem "paperclip", "~> 2.3"
 
 gem 'icalendar'
 gem 'aws-s3'
+gem 'mail'
 
 gem 'ruby-debug', :group => :development
 
