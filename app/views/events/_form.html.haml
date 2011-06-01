@@ -6,22 +6,24 @@
         - @event.errors.full_messages.each do |msg|
           %li= msg
 
-  %table.input
-    %tr.field
-      %td= f.label :name, 'Naziv'
-      %td= f.text_field :name
-    %tr.field
-      %td= f.label :location, 'Mjesto'
-      %td= f.text_field :location
-    %tr.field
-      %td= label_tag :start_date, 'Početak'
-      %td
+  .input
+    .field
+      = f.label :name, 'Naziv'
+      %br
+      = f.text_field :name
+    .field
+      = f.label :location, 'Mjesto'
+      %br
+      = f.text_field :location
+    .field
+      = label_tag :start_date, 'Početak'
+      %br
         = text_field_tag :start_date, @event.start_date.nil? ? nil : @event.start_date.strftime("%d/%m/%Y")
         &nbsp;u
         = text_field_tag :start_time, @event.start_date.nil? ? nil : @event.start_date.strftime("%H:%M")
-    %tr.field
-      %td= label_tag :end_date, 'Završetak'
-      %td
+    .field
+      = label_tag :end_date, 'Završetak'
+      %br
         = text_field_tag :end_date, @event.end_date.nil? ? nil : @event.end_date.strftime("%d/%m/%Y")
         &nbsp;u
         = text_field_tag :end_time, @event.end_date.nil? ? nil : @event.end_date.strftime("%H:%M") unless @event.nil?
@@ -33,10 +35,10 @@
                                                                                           defaultTime: {hour: 15, minute: 0}
                                                                                           });
         })
-    %tr.field
-      %td= f.label :description, 'Opis'
-      %td= f.text_area :description
-    %tr.actions
-      %td
-      %td= f.submit 'Pošalji'
+    .field
+      = f.label :description, 'Opis'
+      %br
+      = f.text_area :description
+    .actions
+      = f.submit 'Pošalji'
 
