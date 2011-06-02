@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all, :order => "surname, name ASC")
+    condition = params[:search]
+    @users = User.search(condition)
     @title = 'Članovi'
 
     respond_to do |format|
