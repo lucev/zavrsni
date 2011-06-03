@@ -108,5 +108,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def detail_search
+    @title = 'Napredna pretraga'
+    @search = Search.new
+  end
+
 end
 

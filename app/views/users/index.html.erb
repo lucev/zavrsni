@@ -1,22 +1,6 @@
 <h1><%= @title %></h1>
 
-<table>
-  <tr>
-    <th>Prezime i ime</th>
-    <th>Email</th>
-    <th>Telefon</th>
-    <th>Tim</th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr class="<%= cycle('odd', 'even') %>">
-    <td><%= link_to "#{user.surname} #{user.name}", user %></td>
-    <td><%= user.email %></td>
-    <td><%= user.phone %></td>
-    <td><%= user.organization.name if member? user and !user.organization.nil? %></td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => 'users_table' %>
 
 <br />
 
@@ -24,5 +8,6 @@
 <% content_for :sidebar do %>
   <%= render :partial => 'simple_search' %>
   <p><%= link_to 'Dodaj člana', new_user_path %></p>
+  <p><%= link_to 'Napredna pretraga', 'users/search' %>
 <% end %>
 

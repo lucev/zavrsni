@@ -1,5 +1,7 @@
 Tigris::Application.routes.draw do
 
+  resources :searches
+
   get "sessions/new"
   get "session/new"
   get "page/home"
@@ -15,9 +17,12 @@ Tigris::Application.routes.draw do
   post '/events/unregister' => 'events#unregister', :as => :unregister
 
   post 'pages/contact' => 'page#send_mail', :as => :message
-
   match 'calendar' => 'page#calendar', :as => :calendar
   match 'contact' => 'page#contact', :as => :contact
+
+  get 'users/search' => 'users#detail_search', :as => :users_search
+  post 'users/search' => 'users#search', :as => :users_search
+
 
   resources :events
   resources :news

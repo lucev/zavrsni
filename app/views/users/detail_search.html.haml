@@ -1,0 +1,19 @@
+%h1= @title
+
+- form_for @search, :html => {:action => "users", :controller => 'searches', :method => 'users'} do |f|
+  .input
+    = f.label :name, 'Ime'
+    %br
+    = f.text_field :name
+  .input
+    = f.label :surname, 'Prezime'
+    %br
+    = f.text_field :surname
+  .input
+    = f.label :email, 'Email'
+    %br
+    = f.text_field :email
+    = f.hidden_field :type, :value => 'user'
+  .submit
+    = f.submit 'Traži'
+
