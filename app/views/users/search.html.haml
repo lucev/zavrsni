@@ -3,3 +3,10 @@
 
 = render :partial => 'users/users_table'
 
+- content_for :sidebar do
+
+  %p
+    = link_to 'Dodaj člana', new_user_path
+  %p
+    = link_to 'Napredna pretraga', 'users/search'
+
