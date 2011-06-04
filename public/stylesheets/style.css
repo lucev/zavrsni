@@ -100,7 +100,7 @@ div.field, div.actions {
 
 #content {
   padding: 2em 0em 2em 2em;
-  min-height: 600px; }
+  min-height: 750px; }
 
 #main_content {
   float: left;
@@ -145,3 +145,6 @@ div.field, div.actions {
 #avatar {
   float: left;
   margin-top: 1em; }
+
+.pagination {
+  float: right; }

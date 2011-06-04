@@ -3,19 +3,23 @@
     %h3
       Predložene obavijesti
     = render :partial => 'news_table', :locals => {:news => @suggested_news}
+    = will_paginate @suggested_news, :param_name => 'suggested_page'
 
 - if admin?
   %h3
     Sve obavijesti
   = render :partial => 'news_table', :locals => {:news => @news}
+  = will_paginate @news
 -  else
   %h3
     Interne obavijesti
   = render :partial => 'news_table', :locals => {:news => @internal_news}
+  = will_paginate @internal_news, :param_name => 'internal_page'
 
   %h3
     Javne obavijesti
   = render :partial => 'news_table', :locals => {:news => @public_news}
+  = will_paginate @public_news, :param_name => 'public_page'
 
 
 %br
@@ -24,7 +28,7 @@
   - if admin?
     - unless @suggested_news.nil? or @suggested_news.empty?
       %p
-        Predloženih obavijesti: #{@suggested_news.size}
+        Predloženih obavijesti: #{@suggested_count}
   %p
     = link_to admin? ? 'Dodaj obavijest' : 'Predloži obavijest', new_news_path
 

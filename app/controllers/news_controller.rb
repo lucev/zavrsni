@@ -3,10 +3,11 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.xml
   def index
-    @news = News.find(:all, :order => "created_at DESC")
-    @suggested_news = News.find(:all, :conditions => {:status => 'suggested'}, :order => "created_at DESC")
-    @internal_news = News.find(:all, :conditions => {:status => 'internal'}, :order => "created_at DESC")
-    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC")
+    @news = News.paginate :page => params[:page], :order => "created_at DESC"
+    @suggested_news = News.paginate :page => params[:suggested_page], :conditions => {:status => 'suggested'}, :order => "created_at DESC"
+    @suggested_count = News.find(:all, :conditions => {:status => 'suggested'}).count
+    @internal_news = News.paginate :page => params[:internal_page], :conditions => {:status => 'internal'}, :order => "created_at DESC"
+    @public_news = News.paginate :page => params[:public_page], :conditions => {:status => 'public'}, :order => "created_at DESC"
     @title = 'Novosti'
 
     respond_to do |format|
