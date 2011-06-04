@@ -2,8 +2,9 @@ class PageController < ApplicationController
 
   def home
     @title = 'Početna'
-    @news = News.find(:all, :order => "created_at DESC" )
-    @events = Event.find(:all, :order => "start_date ASC")
+    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC" )
+    @internal_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC" )
+    @events = Event.find(:all, :conditions => ["start_date > ?", Date.today], :order => "start_date ASC")
   end
 
   def calendar

@@ -4,12 +4,12 @@
 
 %p
   Datum:
-  = @news.date.strftime("%d.%m.%Y.")
+  = @news.created_at.strftime("%d.%m.%Y.")
 
-- unless @autor.nil?
+- unless @author.nil?
   %p
     Autor:
-    = logged_in? ? link_to ("#{@autor.name} #{@autor.surname}", @autor ) : "#{@autor.name} #{@autor.surname}"
+    = logged_in? ? link_to ("#{@author.name} #{@author.surname}", @author ) : "#{@author.name} #{@author.surname}"
 
 - unless @news.summary.nil? or @news.summary.empty?
   %p

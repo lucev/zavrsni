@@ -21,15 +21,17 @@
   %tr
     %td
       .field
-        = f.label :date, 'Datum'
-    %td
-      = f.date_select :date, :order => [:day, :month, :year], :start_year => 1900, :use_month_numbers => true
-  %tr
-    %td
-      .field
         = f.label :text, 'Sadržaj'
     %td
       = f.text_area :text
+  - if admin?
+    %tr
+      %td
+        .field
+          = f.label :status, 'Status'
+      %td
+        = select :news, :status, [["Predloženo",'suggested'], ["Javno",'public'], ["Interno",'internal'], ["Skriveno",'hidden']]
+  %br
   %tr
     %td
     %td

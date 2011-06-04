@@ -3,7 +3,10 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.xml
   def index
-    @news = News.all
+    @news = News.find(:all, :order => "created_at DESC")
+    @suggested_news = News.find(:all, :conditions => {:status => 'suggested'}, :order => "created_at DESC")
+    @internal_news = News.find(:all, :conditions => {:status => 'internal'}, :order => "created_at DESC")
+    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC")
     @title = 'Novosti'
 
     respond_to do |format|
@@ -17,7 +20,7 @@ class NewsController < ApplicationController
   def show
     @news = News.find(params[:id])
     @title = @news.title
-    @autor = User.find_by_id(@news.user_id)
+    @author = User.find_by_id(@news.user_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -52,6 +55,10 @@ class NewsController < ApplicationController
   def create
     @news = News.new(params[:news])
     @news.user_id = current_user.id
+
+    unless admin?
+      @news.status = 'suggested'
+    end
 
     respond_to do |format|
       if @news.save

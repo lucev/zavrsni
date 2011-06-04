@@ -1,22 +1,27 @@
-%h1= @title
+%h1= @title unless logged_in?
 
 #news.rounded-box
   %h3 Obavijesti
-  - @news.each do |news|
-    %p
-      = link_to news.title, news_path(news)
-      %br/
-      objavljeno: #{news.created_at.strftime("%d.%m.%Y u %H:%M")}
-      %br/
-      = news.summary
+  - unless @public_news.nil? or @public_news.empty?
+    - @public_news.each do |news|
+      %p
+        = link_to news.title, news_path(news)
+        %br/
+        objavljeno: #{news.created_at.strftime("%d.%m.%Y u %H:%M")}
+        %br/
+        = news.summary
 
 #events.rounded-box
   %h3 Događaji
-  - @events.each do |event|
+  - if @events.nil? or @events.empty?
     %p
-      = link_to event.name, event_path(event)
-      %br/
-      Datum: #{event.start_date.strftime("%d.%m.%Y")}
+      Nema nadolazećih događaja
+  - else
+    - @events.each do |event|
+      %p
+        = link_to event.name, event_path(event)
+        %br/
+        Datum: #{event.start_date.strftime("%d.%m.%Y")}
 
 -content_for :sidebar do
   =render :partial => 'layouts/side_calendar'
