@@ -2,7 +2,8 @@ class PageController < ApplicationController
 
   def home
     @title = 'Početna'
-    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC" )
+    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC", :limit => 4 )
+    @public_count = News.find(:all, :conditions => {:status => 'public'} ).count
     @internal_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC" )
     @events = Event.find(:all, :conditions => ["start_date > ?", Date.today], :order => "start_date ASC")
   end

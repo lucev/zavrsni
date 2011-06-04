@@ -10,7 +10,9 @@
         objavljeno: #{news.created_at.strftime("%d.%m.%Y u %H:%M")}
         %br/
         = news.summary
-
+    - if @public_count > 4
+      %p
+        = link_to "Sve obavijesti &raquo;".html_safe, news_index_path
 #events.rounded-box
   %h3 Događaji
   - if @events.nil? or @events.empty?

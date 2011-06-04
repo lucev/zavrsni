@@ -1,9 +1,9 @@
 <div id="navigation">
   <div id="pages">
     <%= link_to 'Početna', root_path %>
+    &nbsp;|&nbsp;<%= link_to 'Novosti', news_index_path %>
     <% if current_user %>
-      &nbsp;|&nbsp;<%= link_to 'Novosti', news_index_path %>&nbsp;|&nbsp;
-      <%= link_to 'Događaji', events_path %>&nbsp;|&nbsp;
+      &nbsp;|&nbsp;<%= link_to 'Događaji', events_path %>&nbsp;|&nbsp;
       <%= link_to 'Članovi', users_path %>&nbsp;|&nbsp;
       <%= link_to 'Timovi', organizations_path %>
     <% end %>
