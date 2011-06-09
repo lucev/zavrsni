@@ -1,10 +1,15 @@
 class PageController < ApplicationController
+  include SessionsHelper
 
   def home
     @title = 'Početna'
-    @public_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC", :limit => 4 )
-    @public_count = News.find(:all, :conditions => {:status => 'public'} ).count
-    @internal_news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC" )
+    if logged_in?
+      @news = News.find(:all, :conditions => {:status => ['public', 'internal']}, :order => "created_at DESC", :limit => 4)
+      @news_counter = News.find(:all, :conditions => {:status => ['public', 'internal']} ).count
+    else
+      @news = News.find(:all, :conditions => {:status => 'public'}, :order => "created_at DESC", :limit => 4)
+      @news_counter = News.find(:all, :conditions => {:status => ['public']} ).count
+    end
     @events = Event.find(:all, :conditions => ["start_date > ?", Date.today], :order => "start_date ASC")
   end
 

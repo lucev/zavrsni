@@ -2,15 +2,15 @@
 
 #news.rounded-box
   %h3 Obavijesti
-  - unless @public_news.nil? or @public_news.empty?
-    - @public_news.each do |news|
+  - unless @news.nil? or @news.empty?
+    - @news.each do |news|
       %p
         = link_to news.title, news_path(news)
         %br/
         objavljeno: #{news.created_at.strftime("%d.%m.%Y u %H:%M")}
         %br/
         = news.summary
-    - if @public_count > 4
+    - if @news_counter > 4
       %p
         = link_to "Sve obavijesti &raquo;".html_safe, news_index_path
 #events.rounded-box
