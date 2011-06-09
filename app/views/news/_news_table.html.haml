@@ -12,5 +12,5 @@
       %td= link_to news.title, news_path(news)
       %td= logged_in? ? (link_to "#{news.user.name} #{news.user.surname}", user_path(news.user)) : ("#{news.user.name} #{news.user.surname}") unless news.user.nil?
       - if admin?
-        %td= news.status
+        %td= translate news.status
 

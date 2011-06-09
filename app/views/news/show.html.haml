@@ -24,7 +24,7 @@
 - unless (@news.status.nil? or @news.status.empty?)
   %p
     %b Status
-    = @news.status
+    = translate @news.status
 
 
 -content_for :sidebar do
