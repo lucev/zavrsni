@@ -48,7 +48,7 @@
         %td= user.phone
 
 - content_for :sidebar do
-  -if logged_in?
+  - if admin?
     %p
       = link_to 'Dodaj događaj', new_event_path
   - if authorized_for @event

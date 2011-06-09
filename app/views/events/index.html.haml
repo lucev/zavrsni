@@ -16,5 +16,6 @@
 %br
 
 - content_for :sidebar do
-  %p= link_to 'Dodaj događaj', new_event_path
+  - if admin?
+    %p= link_to 'Dodaj događaj', new_event_path
 
