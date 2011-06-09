@@ -20,6 +20,8 @@
 <br />
 
 <% content_for :sidebar do %>
-  <p><%= link_to 'Dodaj tim', new_organization_path %></p>
+  <% if admin? %>
+    <p><%= link_to 'Dodaj tim', new_organization_path %></p>
+  <% end %>
 <% end %>
 

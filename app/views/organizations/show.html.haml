@@ -33,7 +33,8 @@
 
 
 - content_for :sidebar do
-  %p= link_to 'Dodaj tim', new_organization_path
-  %p= link_to 'Izmjeni tim', edit_organization_path(@organization)
-  = link_to 'Obrisi tim', @organization, :confirm => 'Are you sure?', :method => :delete
+  - if admin?
+    %p= link_to 'Dodaj tim', new_organization_path
+    %p= link_to 'Izmjeni tim', edit_organization_path(@organization)
+    = link_to 'Obriši tim', @organization, :confirm => 'Are you sure?', :method => :delete
 
