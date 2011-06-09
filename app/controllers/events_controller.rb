@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.all
+    @events = Event.find(:all, :order => "start_date DESC")
 
     @title = 'Događaji'
     respond_to do |format|
